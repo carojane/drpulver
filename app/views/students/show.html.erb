@@ -1,29 +1,37 @@
-<row>
-<div id="createRibbit" class="small-3 column">
-    <h1>Create a Ribbit</h1>
-    <p>
-    <form>
-        <textarea name="text" class="ribbitText"></textarea>
-        <input type="submit" value="Ribbit!">
-    </form>
-    </p>
-</div>
-
-<div id="ribbits" class="small-3 column">
-    <h1>Your Ribbit Profile</h1>
-    <div class="ribbitWrapper">
-        <img class="avatar" src="<%= @student.avatar_url %>">
+<div class="row">
+  <div id="ribbits" class="small-8 column">
+    <div class="panel">
+      <div class="panel">
+        <h2>Your Ribbit Profile</h2>
+      </div>
+      <div class="panel">
+        <img src="<%= @student.avatar_url %>">
         <span class="name"><%= @student.name %></span> @<%= @student.username %>
-        <p>
-        XX Ribbits
-        </p>
+        <ul class="inline-list">
+          <li>XX Ribbits</li>
+          <li>XX Followers</li>
+          <li>XX Following</li>
+        </ul>
+      </div>
     </div>
-</div>
-
-<div class="small-3 column">
-    <h1>Your Ribbits</h1>
-    <div class="ribbitWrapper">
-        Ribbits coming . . .
+   <div class="panel">
+      <div class="panel">
+       <h2>Your Ribbits</h2>
+      </div>
+      <div class="panel">
+        <p>Ribbits coming . . .</p>
+      </div>
     </div>
+  </div>
+  <div class="small-4 column panel">
+    <div class="panel">
+      <h2>Create a Ribbit</h2>
+    </div>
+    <div class="panel">
+      <form>
+          <textarea name="text"></textarea>
+          <input type="submit" value="Ribbit!" class="button">
+      </form>
+    </div>
+  </div>
 </div>
-</row>
