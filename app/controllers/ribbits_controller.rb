@@ -1,4 +1,9 @@
 class RibbitsController < ApplicationController
+  def index
+    @ribbits = Ribbit.all
+    @ribbit = Ribbit.new
+  end
+
   def create
     @ribbit = Ribbit.new(ribbit_params)
     if @ribbit.save
