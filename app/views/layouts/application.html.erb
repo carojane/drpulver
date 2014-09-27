@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet/less" href="/style.less">
-    <script src="/less.js"></script>
-</head>
-<body>
-    <header>
-        <div class="wrapper">
-            <img src="/gfx/logo.png">
-            <span>Twitter Clone</span>
-        </div>
-    </header>
-    <div id="content">
-        <div class="wrapper">
-            <% flash.each do |name, msg| %>
-                <%= content_tag :div, msg, class: "flash #{name}" %>
-            <% end %>
-            <%= yield %>
-        </div>
-    </div>
-    <footer>
-        <div class="wrapper">
-            Ribbit - A Twitter Clone Tutorial<img src="/gfx/logo-nettuts.png">
-        </div>
-    </footer>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <header>
+    <nav>
+    <%= render 'devise/menu/login_items' %>
+    <%= render 'devise/menu/registration_items' %>
+    </nav>
+  </header>
+
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

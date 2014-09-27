@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
-  before_save :create_avatar_url
-  before_validation :prep_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :students, dependent: :destroy
+  accepts_nested_attributes_for :students
+
+  before_save :create_avatar_url
+  before_validation :prep_email
 
   validates :username, presence: true,
                        uniqueness: true
