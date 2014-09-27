@@ -4,5 +4,6 @@ class StudentsController < ApplicationController
   end
   def show
     @student = User.find(params[:id])
+    @ribbit = Ribbit.new
   end
 end
