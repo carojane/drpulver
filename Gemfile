@@ -30,12 +30,15 @@ gem 'foundation-rails', '5.4.3.0'
 
 gem 'devise'
 
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'pry-rails'
   gem 'launchy'
   gem 'orderly'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password
