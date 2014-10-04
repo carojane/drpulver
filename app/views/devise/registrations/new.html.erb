@@ -1,22 +1,22 @@
-<h2>Sign up</h2>
+<div class="small-10 medium-6 column">
+<h2 class="text-center">Sign up</h2>
 
-resource.student.build
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div><%= f.label :name %>
   <%= f.text_field :name, autofocus: true %></div>
 
-  <div><%= f.label :username %>
-  <small>Required</small>
+  <div><%= f.label :username, class: "left"  %>
+  <small class="right">Required</small>
   <%= f.text_field :username, autofocus: true %></div>
 
-  <div><%= f.label :email %>
-  <small>Required</small>
+  <div><%= f.label :email, class: "left" %>
+  <small class="right">Required</small>
   <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %>
+  <div><%= f.label :password, class: "left"  %>
     <% if @validatable %>
-      <small><%= @minimum_password_length %> characters minimum</small>
+      <small class="right"><%= @minimum_password_length %> characters minimum</small>
     <% end %>
     <%= f.password_field :password, autocomplete: "off" %></div>
 
@@ -29,7 +29,7 @@ resource.student.build
       <%= s.date_select :date_of_birth,
           start_year: (Time.now.year - 15),
           end_year: (Time.now.year - 65),
-          include_blank: true  %>
+          include_blank: true %>
   </div>
   <div>
       <%= s.label :bio, "About" %>
@@ -37,7 +37,8 @@ resource.student.build
   </div>
   <% end %>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", class: "button" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
