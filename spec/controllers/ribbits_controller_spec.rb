@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe RibbitsController, :type => :controller do
   describe "GET #index" do
     it "populates an array of ribbits" do
-      ribbits = FactoryGirl.create(:ribbit, user_id: 1)
+      user = FactoryGirl.create(:user)
+      ribbits = FactoryGirl.create(:ribbit, user_id: user.id)
       get :index
       expect(assigns(:ribbits)).to eq([ribbits])
     end
