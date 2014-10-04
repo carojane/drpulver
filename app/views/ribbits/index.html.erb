@@ -1,32 +1,8 @@
-<div class="row">
-  <div class="small-8 column">
-    <div>
-      <h2>Public Ribbits</h2>
-      </div>
-      <% @ribbits.each do |ribbit| %>
-          <div class="row panel">
-            <div class="small-4 column">
-                <ul>
-                <a href="<%= student_path(ribbit.user.id) %>">
-                <li><img class="avatar" src="<%= ribbit.user.avatar_url %>"></li>
-                <li><span class="name"><%= ribbit.user.name %></span></li>
-                </a>
-                <li>@<%= ribbit.user.username %></li>
-                </ul>
-            </div>
-
-            <div class="small-8 column">
-                <p class="text-right">
-                <%= time_ago_in_words(ribbit.created_at) %>
-                </p>
-                <p> <%= ribbit.content %> </p>
-            </div>
-          </div>
-      <% end %>
-  </div>
-
+<div class="small-12 column">
+<h2>Public Ribbits</h2>
+</div>
   <% if current_user %>
-    <div class="small-4 column panel">
+    <div class="small-12 column panel">
         <p>
           <%= form_for @ribbit do |f| %>
             <%= f.text_area :content %>
@@ -34,6 +10,27 @@
           <% end %>
         </p>
     </div>
-  </div>
   <% end %>
-</div>
+
+  <!-- Ribbit Feed -->
+    <% @ribbits.each do |ribbit| %>
+    <div class="small-12 medium-6 column">
+      <div class="small-3 column">
+      <ul class="no-bullet">
+        <ul class="no-bullet text-center">
+          <li><img src="<%= ribbit.user.avatar_url %>"></li>
+          <li><%= link_to "@" + ribbit.user.username, student_path(ribbit.user) %></li>
+        </ul>
+      </div>
+      <div class="small-9 column panel">
+        <ul class="no-bullet">
+          <li><%= ribbit.content %></li>
+          <li><small><%= time_ago_in_words(ribbit.created_at) %> ago</small></li>
+        </ul>
+      </ul>
+      </div>
+    </div>
+  <!-- end of Ribbit Feed -->
+    <% end %>
+
+

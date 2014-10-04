@@ -1,5 +1,12 @@
 <ul>
-<% @students.each do |s| %>
-  <li><%= link_to "@" + s.username, student_path(s.id) %></li>
-<% end %>
+  <% @students.each do |student| %>
+    <div class="small-4 medium-3 large-2 column">
+      <ul class="no-bullet">
+        <li class="text-center"><img src="<%= student.avatar_url %>"></li>
+        <li class="text-center"><%= link_to "@" + student.username,
+              student_path(student.id) %></li>
+        <li class="text-center"><%= student.ribbits.size %> Ribbits</li>
+      </ul>
+    </div>
+  <% end %>
 </ul>

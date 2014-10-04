@@ -6,22 +6,45 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "style" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-  <header>
-    <nav>
-    <%= render 'devise/menu/login_items' %>
-    <%= render 'devise/menu/registration_items' %>
+  <header class="header-area">
+      <section class="left">
+        <a href="/"><%= image_tag "drp.png" %></a>
+      </section>
+      <nav class="top-nav" data-topbar role="navigation">
+      <section>
+        <ul class="inline-list right">
+          <li>
+            <%= link_to 'Courses' %>
+          </li>
+          <li>
+            <%= link_to 'Ribbits', ribbits_path %>
+          </li>
+          <% if current_user %>
+          <li>
+            <%= link_to 'My Profile', student_path(current_user) %>
+          </li>
+          <% end %>
+          <li>
+            <%= render 'devise/menu/login_items' %></li>
+          </li>
+        </ul>
+      </section>
     </nav>
   </header>
-
+  <div class="row">
+    <div class="column inside-column">
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
+    </div>
+    </div>
   </body>
 </html>
