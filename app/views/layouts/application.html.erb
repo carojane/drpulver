@@ -6,15 +6,27 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "style" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-  <header>
-    <nav>
-    <%= render 'devise/menu/login_items' %>
-    <%= render 'devise/menu/registration_items' %>
+  <header class="header-area">
+
+    <nav class="sticky" data-topbar role="navigation">
+      <section>
+        <ul class="right">
+          <li>
+            <%= render 'devise/menu/login_items' %></li>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <ul class="left">
+          <a href="/"><%= image_tag "drp.png" %></a>
+        </ul>
+      </section>
     </nav>
   </header>
 
