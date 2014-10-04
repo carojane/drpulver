@@ -13,10 +13,20 @@
 
   <body>
   <header class="header-area">
-
-    <nav class="sticky" data-topbar role="navigation">
+    <nav class="top-nav sticky" data-topbar role="navigation">
       <section>
-        <ul class="right">
+        <ul class="inline-list right">
+          <li>
+            <%= link_to 'Courses' %>
+          </li>
+          <li>
+            <%= link_to 'Ribbits', ribbits_path %>
+          </li>
+          <% if current_user %>
+          <li>
+            <%= link_to 'My Profile', student_path(current_user) %>
+          </li>
+          <% end %>
           <li>
             <%= render 'devise/menu/login_items' %></li>
           </li>
@@ -24,7 +34,9 @@
       </section>
       <section>
         <ul class="left">
+          <li>
           <a href="/"><%= image_tag "drp.png" %></a>
+          </li>
         </ul>
       </section>
     </nav>

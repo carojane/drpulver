@@ -9,17 +9,20 @@
           <li class="text-center"><%= @student.ribbits.size %> Ribbits</li>
         </ul>
       </div>
-      <div class="small-11"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+      <div class="small-11">
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
   <!-- end of Profile -->
   </div>
-  <div class="small-12 medium-6 large-6 column right">
-    <% if @student == current_user %>
-    <h2 class="text-center">My Courses</h2>
+  <% if @student == current_user %>
+  <div class="small-12 medium-6 large-6 column right">    <h2 class="text-right">My Courses</h2>
     <!-- course list -->
       <div class="panel">
         <h3>Course Name<br>
@@ -59,14 +62,18 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></di
               <td>completed</td>
             </tr>
           </table>
-        <% end %>
+
       </div>
   <!-- end of Course information -->
   </div>
   <!-- Ribbit Feed -->
   <div class="small-12 medium-6 large-6 column left">
+  <% else %>
+  <div class="small-12 column">
+        <% end %>
+
     <% if @student.ribbits.size > 0 %>
-      <h2 class="text-center">My Ribbits</h2>
+      <h2 class="text-left">My Ribbits</h2>
     <% end %>
     <% if @student == current_user %>
         <p>
