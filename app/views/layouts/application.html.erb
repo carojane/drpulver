@@ -13,7 +13,10 @@
 
   <body>
   <header class="header-area">
-    <nav class="top-nav sticky" data-topbar role="navigation">
+      <section class="left">
+        <a href="/"><%= image_tag "drp.png" %></a>
+      </section>
+      <nav class="top-nav" data-topbar role="navigation">
       <section>
         <ul class="inline-list right">
           <li>
@@ -32,20 +35,16 @@
           </li>
         </ul>
       </section>
-      <section>
-        <ul class="left">
-          <li>
-          <a href="/"><%= image_tag "drp.png" %></a>
-          </li>
-        </ul>
-      </section>
     </nav>
   </header>
-
+  <div class="row">
+    <div class="column inside-column">
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
+    </div>
+    </div>
   </body>
 </html>
