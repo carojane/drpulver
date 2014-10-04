@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20140927213948) do
 
   create_table "ribbits", force: true do |t|
-    t.text     "content"
-    t.integer  "user_id"
+    t.text     "content",    null: false
+    t.integer  "user_id_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

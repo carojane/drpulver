@@ -3,5 +3,6 @@ class Ribbit < ActiveRecord::Base
   belongs_to :user
 
   validates :content,
+            presence: true,
             length: { maximum: 140, minimum: 1 }
 end
