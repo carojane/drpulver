@@ -9,11 +9,4 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
-
-  factory :invalid_ribbit, parent: :ribbit do
-    content nil
-  end
-
-  factory :student do
-  end
 end
