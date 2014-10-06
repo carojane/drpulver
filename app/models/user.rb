@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :students, dependent: :destroy
+  has_one :students, dependent: :destroy
   accepts_nested_attributes_for :students
   has_many :ribbits, dependent: :destroy
 
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     uniqueness: true,
                     format: { with: /\A[\w.+-]+@([\w]+.)+\w+\z/ }
+  after_save :build_student
 
   private
 
@@ -25,5 +26,10 @@ class User < ActiveRecord::Base
 
   def create_avatar_url
     self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=50"
+  end
+
+  def build_student
+    @student = Student.create(user: self)
+    @student.save
   end
 end

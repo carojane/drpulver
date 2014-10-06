@@ -20,8 +20,8 @@
 
   <div><%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <%= f.fields_for :student, method: 'create' do |s| %>
+<!-- nested form for student -->
+  <%= f.fields_for :student do |s| %>
   <div>
     <%= s.label :first_name %>
     <%= s.text_field :first_name %>
@@ -35,6 +35,7 @@
       <%= s.date_select :date_of_birth,
           start_year: (Time.now.year - 15),
           end_year: (Time.now.year - 65),
+          order: [:month, :day, :year],
           include_blank: true %>
   </div>
   <div>
@@ -42,7 +43,7 @@
       <%= s.text_area :bio %>
   </div>
   <% end %>
-
+<!-- end of nested form -->
   <div><%= f.submit "Sign up", class: "button" %></div>
 <% end %>
 
