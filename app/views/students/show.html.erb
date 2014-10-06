@@ -87,12 +87,19 @@
       <div class="3-small panel radius">
         <ul class="no-bullet">
           <li><%= ribbit.content %></li>
-          <li><small><%= time_ago_in_words(ribbit.created_at) %> ago</small></li>
+          <li>
+            <small><%= time_ago_in_words(ribbit.created_at) %> ago</small>
+          </li>
+          <% if ribbit.user == current_user %>
+            <li>
+              <%= link_to "Delete", ribbit_path(ribbit),
+                                    method: :DELETE %>
+            </li>
+          <% end %>
         </ul>
       </div>
     <% end %>
   <!-- end of Ribbit Feed -->
   </div>
   <!-- Course information -->
-
 </div>
