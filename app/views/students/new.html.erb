@@ -1,0 +1,22 @@
+<%= form_for :student do |f| %>
+  <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label :date_of_birth %>
+    <%= f.date_select :date_of_birth,
+        start_year: (Time.now.year - 15),
+        end_year: (Time.now.year - 65),
+        order: [:month, :day, :year],
+        include_blank: true %>
+  </div>
+  <div>
+    <%= f.label :bio, "About" %>
+    <%= f.text_area :bio %>
+  </div>
+<% end %>
