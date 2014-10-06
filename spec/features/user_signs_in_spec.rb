@@ -11,12 +11,14 @@ feature "User signs in", %{
   scenario "with valid email and password" do
     sign_in_as @user
     expect(page).to have_content(/Signed in successfully./)
+    expect(current_path).to eq(root_path)
   end
 
   scenario "with unregistered email" do
     sign_in_as FactoryGirl.build(:user,
                                  email: "unregistered@email.com")
     expect(page).to have_content(/Invalid email/)
+    expect(current_path).to eq(new_user_session_path)
   end
 
   scenario "with invalid password" do
@@ -25,5 +27,6 @@ feature "User signs in", %{
                                  password: ""
                                  )
     expect(page).to have_content(/Invalid email/)
+    expect(current_path).to eq(new_user_session_path)
   end
 end
