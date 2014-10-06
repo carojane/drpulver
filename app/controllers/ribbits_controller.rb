@@ -1,4 +1,6 @@
 class RibbitsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   def index
     @ribbits = Ribbit.all
     @ribbit = Ribbit.new
