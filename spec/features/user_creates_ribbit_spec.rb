@@ -15,23 +15,23 @@ feature "User creates ribbit", %{
     scenario "when on student profile" do
       visit student_path(user)
       fill_in "ribbit_content", with: "Ipsum Lorem"
-      expect { click_button "Ribbit!" }
-        .to change{ Ribbit.count }.by(1)
+      expect { click_button "Ribbit!" }.
+        to change{ Ribbit.count }.by(1)
       expect(current_path).to eq(student_path(user))
     end
 
     scenario "when on ribbits page" do
       visit ribbits_path
       fill_in "ribbit_content", with: "Ipsum Lorem"
-      expect { click_button "Ribbit!" }
-        .to change{ Ribbit.count }.by(1)
+      expect { click_button "Ribbit!" }.
+        to change{ Ribbit.count }.by(1)
       expect(current_path).to eq(student_path(user))
     end
 
     scenario "without content" do
       visit ribbits_path
-      expect { click_button "Ribbit!" }
-        .to change{ Ribbit.count }.by(0)
+      expect { click_button "Ribbit!" }.
+        to change{ Ribbit.count }.by(0)
       expect(current_path).to eq(student_path(user))
     end
   end
