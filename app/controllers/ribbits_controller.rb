@@ -16,6 +16,12 @@ class RibbitsController < ApplicationController
     end
   end
 
+  def destroy
+    @ribbit = Ribbit.find(params[:id])
+    @ribbit.destroy
+    redirect_to student_path(current_user)
+  end
+
   private
 
   def ribbit_params
