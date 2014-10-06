@@ -10,7 +10,7 @@ feature "User deletes ribbit", %{
     scenario "when on own profile page" do
       sign_in_as ribbit.user
       visit student_path(ribbit.user)
-      expect {find_link("Delete").click}.
+      expect { find_link("Delete").click }.
         to change { Ribbit.count }.by(-1)
     end
     scenario "with another user's ribbit" do
