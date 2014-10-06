@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006222201) do
+ActiveRecord::Schema.define(version: 20141006233125) do
 
   create_table "ribbits", force: true do |t|
     t.text     "content",    null: false
@@ -30,8 +30,11 @@ ActiveRecord::Schema.define(version: 20141006222201) do
     t.string   "last_name"
   end
 
+  add_index "students", ["user_id"], name: "index_students_on_user_id", unique: true
+
   create_table "users", force: true do |t|
     t.string   "username",                            null: false
+    t.string   "name"
     t.string   "avatar_url"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -45,9 +48,11 @@ ActiveRecord::Schema.define(version: 20141006222201) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

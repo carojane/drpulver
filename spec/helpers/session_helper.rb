@@ -9,7 +9,6 @@ module SessionHelpers
     fill_in "About", with: "Lorem Ipsum"
     fill_in "First name", with: "Jane"
     fill_in "Last name", with: "Smith"
-    # split to first/last
     click_button "Sign up"
   end
 
