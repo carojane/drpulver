@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927213948) do
+ActiveRecord::Schema.define(version: 20141006222201) do
 
   create_table "ribbits", force: true do |t|
     t.text     "content",    null: false
@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(version: 20140927213948) do
     t.integer  "user_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "users", force: true do |t|
     t.string   "username",                            null: false
-    t.string   "name"
     t.string   "avatar_url"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -44,7 +45,6 @@ ActiveRecord::Schema.define(version: 20140927213948) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "profile"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
