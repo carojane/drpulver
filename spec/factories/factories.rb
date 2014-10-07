@@ -9,4 +9,11 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+  factory :student do
+    first_name "Jane"
+    last_name "Smith"
+    bio "This is my profile."
+    user
+  end
 end

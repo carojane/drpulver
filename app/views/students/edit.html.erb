@@ -5,7 +5,8 @@
         start_year: (Time.now.year - 15),
         end_year: (Time.now.year - 65),
         order: [:month, :day, :year],
-        include_blank: true %>
+        include_blank: true,
+        class: "date_select" %>
     <%= f.input :bio, label: "About" %>
     <p>Sign up with <a href="http://en.gravatar.com/">Gravitar</a> to set your profile picture.</p>
     <%= f.button :submit %>
