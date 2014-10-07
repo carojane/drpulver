@@ -26,10 +26,10 @@ feature "User edits student profile" do
     end
 
     scenario "with just first name" do
-      fill_in "First name", with: profile.first_name
+      profile_2 = FactoryGirl.build(:student, last_name: nil)
+      fill_in "First name", with: profile_2.first_name
       click_button "Update Student"
-      expect(page).to have_content(profile.first_name)
-      expect(page).to_not have_content(profile.full_name)
+      expect(page).to have_content(profile_2.full_name)
     end
 
     scenario "with no information entered" do
