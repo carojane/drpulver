@@ -12,7 +12,7 @@ feature "User signs up", %{
                  user.password
     expect(page).to have_content(/Welcome!/)
     current_user = User.last
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(student_path(current_user))
   end
   scenario "with invalid email" do
     sign_up_with user.username,

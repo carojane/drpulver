@@ -11,7 +11,7 @@ feature "User signs in", %{
   scenario "with valid email and password" do
     sign_in_as @user
     expect(page).to have_content(/Signed in successfully./)
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(student_path(@user))
   end
 
   scenario "with unregistered email" do

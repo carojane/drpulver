@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
                                                                        :bio,
                                                                        :user_id]]
   end
+
+  def after_sign_in_path_for(resource)
+    student_path(current_user)
+  end
 end
