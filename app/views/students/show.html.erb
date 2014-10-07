@@ -1,11 +1,12 @@
 <div class="row">
   <!-- Profile -->
-  <div class="column panel">
+  <div class="column">
       <div class="small-3 column">
         <ul class="no-bullet">
           <li class="text-center">
             <img src="<%= @user.avatar_url %>">
           </li>
+          <li class="text-center">@<%= @user.username %></li>
           <li class="text-center">
             <%= @user.ribbits.size %> Ribbits
           </li>
@@ -13,19 +14,26 @@
       </div>
       <div class="small-11">
         <ul class="inline-list">
-          <li class="left">@<%= @user.username %></li>
-          <li class="right"><%= @student.full_name %></li>
+          <li><%= @student.full_name %></li>
+          <li><% if @student.date_of_birth %>
+            <%= @student.birthday %>
+            <% end %> </li>
         </ul>
         <p>
-          <% if !@student.bio %>
+          <% if !@student.bio || @student.bio == "" %>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
+          <% else %>
+            <%= @student.bio %>
           <% end %>
         </p>
-      </div>
+      <% if @user == current_user %>
+        <%= link_to "Update Profile", edit_student_path(current_user) %>
+      <% end %>
+    </div>
   <!-- end of Profile -->
   </div>
-  <% if @user == current_user %>
+<% if @user == current_user %>
   <div class="small-12 medium-6 large-6 column right">    <h2 class="text-right">My Courses</h2>
     <!-- course list -->
       <div class="panel">
