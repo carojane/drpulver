@@ -25,6 +25,13 @@ feature "User edits student profile" do
       expect(page).to have_content(profile.bio)
     end
 
+    scenario "with just first name" do
+      fill_in "First name", with: profile.first_name
+      click_button "Update Student"
+      expect(page).to have_content(profile.first_name)
+      expect(page).to_not have_content(profile.full_name)
+    end
+
     scenario "with no information entered" do
       click_button "Update Student"
       expect(page).to_not have_content(profile.full_name)
