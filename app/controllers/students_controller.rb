@@ -6,9 +6,6 @@ class StudentsController < ApplicationController
   def show
     @user = User.find(params[:id])
     @student = Student.find_by(user: @user)
-    if @student.date_of_birth
-      @birthday = @student.date_of_birth.strftime("Birthday: %B %-d, %Y")
-    end
     @ribbit = Ribbit.new
   end
 
