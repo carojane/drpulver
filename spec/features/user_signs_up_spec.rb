@@ -16,9 +16,7 @@ feature "User signs up", %{
   end
 
   scenario "with creating a student" do
-    expect { sign_up_with user.username,
-                          user.email,
-                          user.password }.
+    expect { sign_up_with user.username, user.email, user.password }.
       to change { Student.count }.by(1)
   end
 
