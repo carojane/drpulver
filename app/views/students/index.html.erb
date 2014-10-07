@@ -2,10 +2,14 @@
   <% @students.each do |student| %>
     <div class="small-4 medium-3 large-2 column">
       <ul class="no-bullet">
-        <li class="text-center"><img src="<%= student.avatar_url %>"></li>
-        <li class="text-center"><%= link_to "@" + student.username,
-              student_path(student.id) %></li>
-        <li class="text-center"><%= student.ribbits.size %> Ribbits</li>
+        <li class="text-center">
+          <img src="<%= student.user.avatar_url %>">
+        </li>
+        <li class="text-center">
+          <%= link_to "@" + student.user.username,
+                            student_path(student.user.id) %>
+        </li>
+        <li class="text-center"><%= student.user.ribbits.size %> Ribbits</li>
       </ul>
     </div>
   <% end %>

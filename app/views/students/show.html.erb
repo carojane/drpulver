@@ -3,11 +3,15 @@
   <div class="column">
       <div class="small-3 column">
         <ul class="no-bullet">
-          <li class="text-center"><img src="<%= @student.avatar_url %>"></li>
-          <li class="text-center">@<%= @student.username %></li>
           <li class="text-center">
+            <img src="<%= @user.avatar_url %>">
           </li>
-          <li class="text-center"><%= @student.ribbits.size %> Ribbits</li>
+          <li class="text-center">
+            @<%= @user.username %>
+          </li>
+          <li class="text-center">
+            <%= @user.ribbits.size %> Ribbits
+          </li>
         </ul>
       </div>
       <div class="small-11">
@@ -22,7 +26,7 @@
       </div>
   <!-- end of Profile -->
   </div>
-  <% if @student == current_user %>
+  <% if @user == current_user %>
   <div class="small-12 medium-6 large-6 column right">    <h2 class="text-right">My Courses</h2>
     <!-- course list -->
       <div class="panel">
@@ -73,10 +77,10 @@
   <div class="small-12 column">
         <% end %>
 
-    <% if @student.ribbits.size > 0 %>
+    <% if @user.ribbits.size > 0 %>
       <h2 class="text-left">My Ribbits</h2>
     <% end %>
-    <% if @student == current_user %>
+    <% if @user == current_user %>
         <p>
           <%= form_for @ribbit do |f| %>
             <%= f.text_area :content %>
@@ -84,7 +88,7 @@
           <% end %>
         </p>
     <% end %>
-    <% @student.ribbits.each do |ribbit| %>
+    <% @user.ribbits.each do |ribbit| %>
       <div class="3-small panel radius">
         <ul class="no-bullet">
           <li><%= ribbit.content %></li>
