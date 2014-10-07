@@ -7,4 +7,7 @@ class StudentsController < ApplicationController
     @student = User.find(params[:id])
     @ribbit = Ribbit.new
   end
+
+  def edit
+  end
 end
