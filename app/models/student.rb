@@ -14,4 +14,8 @@ class Student < ActiveRecord::Base
     else
     end
   end
+
+  def birthday
+    self.date_of_birth.strftime("%B %-d, %Y")
+  end
 end
