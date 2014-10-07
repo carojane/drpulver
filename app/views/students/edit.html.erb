@@ -1,0 +1,11 @@
+<%= simple_form_for @student do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :date_of_birth,
+        start_year: (Time.now.year - 15),
+        end_year: (Time.now.year - 65),
+        order: [:month, :day, :year],
+        include_blank: true %>
+    <%= f.input :bio, label: "About" %>
+    <%= f.button :submit %>
+<% end %>

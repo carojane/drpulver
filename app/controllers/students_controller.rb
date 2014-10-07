@@ -1,13 +1,22 @@
 class StudentsController < ApplicationController
   def index
-    @students = User.all
+    @students = Student.all
   end
 
   def show
-    @student = User.find(params[:id])
+    @user = User.find(params[:id])
+    @student = Student.find_by(user: @user)
     @ribbit = Ribbit.new
   end
 
   def edit
+    @student = Student.find_by(user: current_user)
   end
+
+  def update
+    @student = Student.find_by(user: current_user)
+  end
+
+  private
+
 end
