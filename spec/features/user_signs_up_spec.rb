@@ -14,6 +14,14 @@ feature "User signs up", %{
     current_user = User.last
     expect(current_path).to eq(edit_student_path(current_user))
   end
+
+  scenario "with creating a student" do
+    expect { sign_up_with user.username,
+                          user.email,
+                          user.password }.
+      to change { Student.count }.by(1)
+  end
+
   scenario "with invalid email" do
     sign_up_with user.username,
                  "",
@@ -21,6 +29,7 @@ feature "User signs up", %{
     expect(page).to have_content(/Email is invalid/)
     expect(current_path).to eq(user_registration_path)
   end
+
   scenario "with blank password" do
     sign_up_with user.username,
                  user.email,
@@ -28,6 +37,7 @@ feature "User signs up", %{
     expect(page).to have_content(/Password can't be blank/)
     expect(current_path).to eq(user_registration_path)
   end
+
   scenario "with blank username" do
     sign_up_with "",
                  user.email,
