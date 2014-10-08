@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def create_avatar_url
-    avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=50"
+    avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=100&d=mm"
   end
 
   def build_student
