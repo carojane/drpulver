@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :students, dependent: :destroy
+  has_many :students, dependent: :destroy
   accepts_nested_attributes_for :students
   has_many :ribbits, dependent: :destroy
 
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def create_avatar_url
-    avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=100&d=mm"
+    self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=100&d=mm"
   end
 
   def build_student
