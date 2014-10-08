@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   private
 
   def prep_email
-    email = email.strip.downcase if self.email
+    email = self.email.strip.downcase if self.email
   end
 
   def create_avatar_url
