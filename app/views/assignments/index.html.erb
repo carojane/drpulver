@@ -1,2 +1,18 @@
-<h1>Assignments#index</h1>
-<p>Find me in app/views/assignments/index.html.erb</p>
+<h1>Assignments</h1>
+<table>
+  <tr>
+    <th>assignment</th>
+    <th>course name</th>
+    <th>course number</th>
+    <th>due date</th>
+  </tr>
+    <% @assignments.each do |assignment| %>
+    <tr>
+      <td><%= link_to assignment.title, course_assignment_path(assignment.course,
+                                                               assignment) %></td>
+      <td><%= link_to assignment.course.name, course_path(assignment.course) %></td>
+      <td><%= assignment.course.number %></td>
+      <td><%= assignment.due_date.strftime("%b %-d, %Y") %></td>
+    </tr>
+    <% end %>
+</table>

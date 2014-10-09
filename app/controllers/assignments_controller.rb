@@ -1,8 +1,10 @@
 class AssignmentsController < ApplicationController
   def index
+    @assignments = Assignment.order(due_date: :desc)
   end
 
   def show
+    @assignment = Assignment.find(params[:id])
   end
 
   def new
