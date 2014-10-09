@@ -20,7 +20,7 @@ FactoryGirl.define do
   factory :course do
     sequence(:name) { |n| "course#{n}" }
     sequence(:number) { |n| "F#{n}14" }
-    meeting_time  "M,W,F 8-10"
+    meeting_time "M,W,F 8-10"
     description Faker::Lorem.sentence
     syllabus Faker::Lorem.sentence
     start_date do
