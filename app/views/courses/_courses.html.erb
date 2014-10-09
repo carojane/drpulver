@@ -1,0 +1,22 @@
+<!-- course information -->
+<% @courses.each do |course| %>
+  <div class="small-12 column panel">
+    <div class="small-6 column left">
+      <h3><%= link_to course.name, course_path(course) %><br>
+      <small><%= course.number %></small></h3>
+    </div>
+    <div class="small-6 column right">
+      <ul class="no-bullet text-right">
+        <li>
+          <% if course.meeting_time != "" %>
+          <%= course.meeting_time %>
+          <% else %>
+          <br>
+          <% end %>
+        </li>
+        <li>meeting place</li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+<!-- end course information -->
