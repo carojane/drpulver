@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'assignments/index'
+
+  get 'assignments/show'
+
+  get 'assignments/new'
+
+  get 'assignments/edit'
+
   resources :ribbits
 
   devise_for :users, controllers: { registrations: "registrations" }
@@ -9,7 +17,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :students
-  resources :courses
+  resources :courses do
+    resources :assignments
+  end
+
+  resources :assignments
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

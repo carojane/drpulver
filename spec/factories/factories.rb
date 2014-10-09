@@ -6,23 +6,23 @@ FactoryGirl.define do
   end
 
   factory :ribbit do
-    content "Lorem ipsum"
+    content Faker::Lorem.sentence
     user
   end
 
   factory :student do
-    first_name "Jane"
-    last_name "Smith"
-    bio "This is my profile."
+    first_name  "Jane"
+    last_name   "Smith"
+    bio         Faker::Lorem.paragraph
     user
   end
 
   factory :course do
     sequence(:name) { |n| "course#{n}" }
     sequence(:number) { |n| "F#{n}14" }
-    meeting_time "M,W,F 8-10"
-    description Faker::Lorem.sentence
-    syllabus Faker::Lorem.sentence
+    meeting_time  "M,W,F 8-10"
+    description   Faker::Lorem.sentence
+    syllabus      Faker::Lorem.sentence
     start_date do
       from = Time.now.to_f
       to   = 1.months.from_now.to_f
@@ -33,5 +33,12 @@ FactoryGirl.define do
       to   = 2.months.from_now.to_f
       Time.at(from + rand * (to - from))
     end
+  end
+
+  factory :assignment do
+    title Faker::Lorem.sentence
+    body Faker::Lorem.paragraph
+    due_date Faker::Date.between(5.days.ago, 5.days.from_now)
+    course
   end
 end
