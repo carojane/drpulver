@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     if @course.update(course_params)
       redirect_to course_path(@course),
-        notice: "Course sucessfully updated."
+                  notice: "Course sucessfully updated."
     else
       render "edit"
     end
@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @course.destroy
     redirect_to courses_path,
-      notice: "Course sucessfully deleted"
+                notice: "Course sucessfully deleted"
   end
 
   private
