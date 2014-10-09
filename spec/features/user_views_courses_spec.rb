@@ -8,7 +8,6 @@ feature "User views courses", %{
   scenario "with course info" do
     course = FactoryGirl.create(:course)
     visit courses_path
-    save_and_open_page
     expect(page).to have_content(course.number)
     expect(page).to have_content(course.meeting_time)
     click_on course.name
