@@ -19,13 +19,13 @@
       <nav class="top-nav" data-topbar role="navigation">
       <section>
         <ul class="inline-list right">
+          <% if current_user %>
           <li>
-            <%= link_to 'Courses' %>
+            <%= link_to 'Courses', courses_path %>
           </li>
           <li>
             <%= link_to 'Ribbits', ribbits_path %>
           </li>
-          <% if current_user %>
           <li>
             <%= link_to 'My Profile', student_path(current_user) %>
           </li>
