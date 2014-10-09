@@ -14,4 +14,14 @@ feature "User views courses", %{
     expect(page).to have_content(course.description)
     expect(page).to have_content(course.syllabus)
   end
+
+  scenario "on root directory" do
+    course = FactoryGirl.create(:course)
+    visit "/"
+    expect(page).to have_content(course.number)
+    expect(page).to have_content(course.meeting_time)
+    click_on course.name
+    expect(page).to have_content(course.description)
+    expect(page).to have_content(course.syllabus)
+  end
 end
