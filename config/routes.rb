@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'assignments/index'
-
-  get 'assignments/show'
-
-  get 'assignments/new'
-
-  get 'assignments/edit'
-
   resources :ribbits
 
   devise_for :users, controllers: { registrations: "registrations" }

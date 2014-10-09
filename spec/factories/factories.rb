@@ -11,9 +11,9 @@ FactoryGirl.define do
   end
 
   factory :student do
-    first_name  "Jane"
-    last_name   "Smith"
-    bio         Faker::Lorem.paragraph
+    first_name "Jane"
+    last_name "Smith"
+    bio Faker::Lorem.paragraph
     user
   end
 
@@ -21,8 +21,8 @@ FactoryGirl.define do
     sequence(:name) { |n| "course#{n}" }
     sequence(:number) { |n| "F#{n}14" }
     meeting_time  "M,W,F 8-10"
-    description   Faker::Lorem.sentence
-    syllabus      Faker::Lorem.sentence
+    description Faker::Lorem.sentence
+    syllabus Faker::Lorem.sentence
     start_date do
       from = Time.now.to_f
       to   = 1.months.from_now.to_f
