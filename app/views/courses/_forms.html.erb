@@ -1,0 +1,23 @@
+<%= simple_form_for @course do |f| %>
+  <%= f.input :name %>
+  <%= f.input :number %>
+  <%= f.input :meeting_time %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :syllabus, as: :text %>
+  <div class="start_date">
+  <%= f.input :start_date, as: :date,
+                           start_year: Date.today.year,
+                           end_year: Date.today.year + 1,
+                           order: [:month, :day, :year],
+                           class: "start_date",
+                           include_blank: true %>
+  </div>
+  <div class="end_date">
+  <%= f.input :end_date, as: :date,
+                           start_year: Date.today.year,
+                           end_year: Date.today.year + 1,
+                           order: [:month, :day, :year],
+                           include_blank: true %>
+  </div>
+  <%= f.submit class: "button" %>
+<% end %>
