@@ -7,7 +7,6 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @assignments = Assignment.where(course: @course)
     @enrollments = Enrollment.where(course: @course)
-    @students = User.where()
   end
 
   def new
