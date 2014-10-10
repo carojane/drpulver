@@ -6,6 +6,8 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @assignments = Assignment.where(course: @course)
+    @enrollments = Enrollment.where(course: @course)
+    @students = User.where()
   end
 
   def new
