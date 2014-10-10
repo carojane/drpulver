@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
   def show
     @user = User.find(params[:id])
     @student = Student.find_by(user: @user)
+    @enrollments = Enrollment.where(user: @user)
     @ribbit = Ribbit.new
   end
 

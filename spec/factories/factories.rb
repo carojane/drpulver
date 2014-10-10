@@ -41,4 +41,9 @@ FactoryGirl.define do
     due_date Faker::Date.between(5.days.ago, 5.days.from_now)
     course
   end
+
+  factory :enrollment do
+    user
+    course
+  end
 end
