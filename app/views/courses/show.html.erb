@@ -15,12 +15,18 @@
   <tr>
     <th>assignment</th>
     <th>due date</th>
+    <% if current_user %>
+      <th>delete</th>
+    <% end %>
   </tr>
     <% @assignments.each do |assignment| %>
     <tr>
       <td><%= link_to assignment.title, course_assignment_path(@course,
                                                                assignment) %></td>
       <td><%= assignment.due_date.strftime("%b %-d, %Y") %></td>
+      <% if current_user %>
+        <td><%= link_to "X", course_assignment_path(@course, assignment), method: :DELETE %></td>
+      <% end %>
     </tr>
     <% end %>
 </table>
