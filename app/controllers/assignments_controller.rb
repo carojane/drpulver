@@ -35,6 +35,13 @@ class AssignmentsController < ApplicationController
                 notice: "Course sucessfully updated."
   end
 
+  def destroy
+    @assignment = Assignment.find(params[:id])
+    @course = @assignment.course
+    @assignment.destroy
+    redirect_to course_path(@course), notice: "Assignment sucessfully deleted."
+  end
+
   private
 
   def assignment_params
