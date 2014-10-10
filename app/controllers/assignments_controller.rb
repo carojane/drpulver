@@ -22,6 +22,19 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  def edit
+    @assignment = Assignment.find(params[:id])
+    @course = @assignment.course
+  end
+
+  def update
+    @assignment = Assignment.find(params[:id])
+    @course = @assignment.course
+    @assignment.update(assignment_params)
+    redirect_to course_assignment_path(@assignment.course, @assignment),
+                notice: "Course sucessfully updated."
+  end
+
   private
 
   def assignment_params
