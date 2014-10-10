@@ -37,44 +37,21 @@
   <div class="small-12 medium-6 large-6 column right">    <h2 class="text-right">My Courses</h2>
     <!-- course list -->
       <div class="panel">
-        <h3>Course Name<br>
-        <small>Course Number</small></h3>
+        <% @enrollments.each do |enrol| %>
+        <h3><%= link_to enrol.course.name, course_path(enrol.course) %><br>
+        <small><%= enrol.course.number %></small></h3>
       <!-- assignments -->
         <!-- due (unfinished) -->
+          <% if enrol.course.assignments.size != 0 %>
           <table>
-            <tr>
-              <th>assignment</th>
-              <th>due date</th>
-            </tr>
-            <tr>
-              <td>assignment 1</td>
-              <td>date</td>
-            </tr>
-            <tr>
-              <td>assignment 2</td>
-              <td>date</td>
-            </tr>
-            <tr>
-              <td>assignment 3</td>
-              <td>date</td>
-            </tr>
+            <% enrol.course.assignments.each do |assignment| %>
+              <td><%= link_to assignment.title, course_assignment_path(assignment.course, assignment) %></td>
+              <td><%= assignment.due_date %></td>
+            <% end %>
           </table>
+          <% end %>
         <!-- completed -->
-          <table>
-            <tr>
-              <td>assignment 1</td>
-              <td>completed</td>
-            </tr>
-            <tr>
-              <td>assignment 2</td>
-              <td>completed</td>
-            </tr>
-            <tr>
-              <td>assignment 3</td>
-              <td>completed</td>
-            </tr>
-          </table>
-
+        <% end %>
       </div>
   <!-- end of Course information -->
   </div>
