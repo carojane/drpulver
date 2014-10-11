@@ -1,11 +1,13 @@
 <h1><%= @assignment.title %></h1>
-<h3><%= link_to @assignment.course.name, course_path(@assignment.course) %>
- <small><%= @assignment.course.number %></small></h3>
-<h3>Due: <%= @assignment.due_date.strftime("%b %-d, %Y") %></h3>
-<p><%= @assignment.body %></p>
 
-<ul>
+<ul class="inline-list">
   <li><%= link_to "Edit Assignment", edit_course_assignment_path(@assignment.course, @assignment) %></li>
   <li><%= link_to "Delete Assignment", course_assignment_path(@assignment.course, @assignment),
                                        method: :DELETE %></li>
 </ul>
+
+<h3><%= link_to @assignment.course.name, course_path(@assignment.course) %>
+ <small><%= @assignment.course.number %></small></h3>
+<h3>Due <%= @assignment.due_date.strftime("%b %-d, %Y") %></h3>
+<p><%= @assignment.body.html_safe %></p>
+
