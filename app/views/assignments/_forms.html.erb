@@ -1,6 +1,7 @@
 <%= simple_form_for [@course, @assignment] do |f| %>
   <%= f.input :title %>
-  <%= f.input :body, as: :text %>
+  <%= f.input :body, as: :text,
+                     class: "textarea" %>
   <div class="due_date">
   <%= f.input :due_date, as: :date,
                          start_day: Date.today,
