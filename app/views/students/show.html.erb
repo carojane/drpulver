@@ -24,7 +24,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
           <% else %>
-            <%= @student.bio %>
+            <%= @student.bio.html_safe %>
           <% end %>
         </p>
       <% if @user == current_user %>
@@ -45,8 +45,10 @@
           <% if enrol.course.assignments.size != 0 %>
           <table>
             <% enrol.course.assignments.each do |assignment| %>
+            <tr>
               <td><%= link_to assignment.title, course_assignment_path(assignment.course, assignment) %></td>
-              <td><%= assignment.due_date %></td>
+              <td><%= assignment.due_date.strftime("%b %-d, %Y") %></td>
+            </tr>
             <% end %>
           </table>
           <% end %>
