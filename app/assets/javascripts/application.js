@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require jquery-te-1.4.0
+//= require jqueryte.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
