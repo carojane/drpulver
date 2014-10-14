@@ -33,7 +33,7 @@
     </div>
   <!-- end of Profile -->
   </div>
-<% if @user == current_user %>
+<% if @user == current_user && @enrollments.size > 0 %>
   <div class="small-12 medium-6 large-6 column right">    <h2 class="text-right">My Courses</h2>
     <!-- course list -->
       <div class="panel">
