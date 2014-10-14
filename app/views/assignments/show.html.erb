@@ -1,9 +1,11 @@
 <h1><%= @assignment.title %></h1>
 
 <ul class="inline-list">
-  <li><%= link_to "Edit Assignment", edit_course_assignment_path(@assignment.course, @assignment) %></li>
-  <li><%= link_to "Delete Assignment", course_assignment_path(@assignment.course, @assignment),
-                                       method: :DELETE %></li>
+  <% if user_signed_in? && current_user.admin? %>
+    <li><%= link_to "Edit Assignment", edit_course_assignment_path(@assignment.course, @assignment) %></li>
+    <li><%= link_to "Delete Assignment", course_assignment_path(@assignment.course, @assignment),
+                                         method: :DELETE %></li>
+  <% end %>
 </ul>
 
 <h3><%= link_to @assignment.course.name, course_path(@assignment.course) %>
