@@ -49,6 +49,7 @@ class CoursesController < ApplicationController
     params.require(:course).permit(:name,
                                    :number,
                                    :meeting_time,
+                                   :location,
                                    :description,
                                    :syllabus,
                                    :"start_date(2i)",
