@@ -78,7 +78,7 @@ feature "Admin creates course", %{
     end
 
     scenario "on edit course path" do
-      expect{ visit new_course_path }.
+      expect { visit new_course_path }.
         to raise_error(ActionController::RoutingError)
     end
   end

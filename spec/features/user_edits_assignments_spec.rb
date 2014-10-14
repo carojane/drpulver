@@ -44,7 +44,7 @@ feature "", %{
     end
 
     scenario "on edit path" do
-      expect{ visit edit_course_assignment_path(@assignment.course, @assignment) }.
+      expect { visit edit_course_assignment_path(@assignment.course, @assignment) }.
         to raise_error(ActionController::RoutingError)
     end
   end

@@ -58,7 +58,7 @@ feature "admin adds assignments", %{
     end
 
     scenario "on new assignment path" do
-      expect{ visit new_course_assignment_path(course) }.
+      expect { visit new_course_assignment_path(course) }.
         to raise_error(ActionController::RoutingError)
     end
   end
@@ -70,7 +70,7 @@ feature "admin adds assignments", %{
     end
 
     scenario "on new assignment path" do
-      expect{ visit new_course_assignment_path(course) }.
+      expect { visit new_course_assignment_path(course) }.
         to raise_error(ActionController::RoutingError)
     end
   end

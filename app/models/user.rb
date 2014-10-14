@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   after_save :build_student
 
   def admin?
-    role == 'admin'
+    role == "admin"
   end
 
   private
