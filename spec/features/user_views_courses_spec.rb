@@ -10,6 +10,7 @@ feature "User views courses", %{
     visit courses_path
     expect(page).to have_content(course.number)
     expect(page).to have_content(course.meeting_time)
+    expect(page).to have_content(course.location)
     click_on course.name
     expect(page).to have_content(course.description)
     expect(page).to have_content(course.syllabus)
@@ -20,6 +21,7 @@ feature "User views courses", %{
     visit "/"
     expect(page).to have_content(course.number)
     expect(page).to have_content(course.meeting_time)
+    expect(page).to have_content(course.location)
     click_on course.name
     expect(page).to have_content(course.description)
     expect(page).to have_content(course.syllabus)

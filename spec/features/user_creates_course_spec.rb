@@ -31,6 +31,7 @@ feature "Admin creates course", %{
       fill_in "Name", with: course.name
       fill_in "Number", with: course.number
       fill_in "Meeting time", with: course.meeting_time
+      fill_in "Location", with: course.location
       fill_in "Description", with: course.description
       fill_in "Syllabus", with: course.syllabus
       select_date(course.start_date, ".start_date")

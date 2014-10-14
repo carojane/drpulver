@@ -14,7 +14,13 @@
           <br>
           <% end %>
         </li>
-        <li>meeting place</li>
+        <li>
+          <% if course.location != "" %>
+          <%= course.location %>
+          <% else %>
+          <br>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

@@ -18,7 +18,6 @@ feature "User views students" do
     scenario "with my profile" do
       visit student_path(user)
       expect(page).to have_content("@#{user.username}")
-      expect(page).to have_content("My Courses")
       expect(page).to have_button("Ribbit!")
       expect(page).to have_link("Update Profile")
     end
