@@ -28,7 +28,7 @@
   <tr>
     <th>assignment</th>
     <th>due date</th>
-    <% if current_user%>
+    <% if user_signed_in? && current_user.admin? %>
       <th>delete</th>
     <% end %>
   </tr>
