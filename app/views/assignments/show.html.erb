@@ -13,3 +13,20 @@
 <h3>Due <%= @assignment.due_date.strftime("%b %-d, %Y") %></h3>
 <p><%= @assignment.body.html_safe %></p>
 
+<% if enrolled(@assignment.course) %>
+    <h3>Submission</h3>
+  <% if @submission.body %>
+    <div class="panel">
+    <p><%= @submission.body.html_safe %></p>
+    <%= link_to "Update Submission",
+      edit_course_assignment_submission_path(@assignment.course,
+                                             @assignment,
+                                             @submission) %>
+    </div>
+  <% else %>
+    <%= simple_form_for [@assignment.course, @assignment, @submission] do |f| %>
+      <%= f.input :body, as: :text, class: "textarea" %>
+      <%= f.submit class: "button" %>
+    <% end %>
+  <% end %>
+<% end %>

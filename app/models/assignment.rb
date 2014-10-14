@@ -1,5 +1,6 @@
 class Assignment < ActiveRecord::Base
   belongs_to :course
+  has_many :submissions, dependent: :destroy
   default_scope { order("due_date") }
 
   validates :body,     presence: true

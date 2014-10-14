@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   resources :students
   resources :courses do
-    resources :assignments
+    resources :assignments do
+      resources :submissions
+    end
     resources :enrollments
   end
 
