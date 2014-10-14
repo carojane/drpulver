@@ -13,7 +13,7 @@ class AssignmentsController < ApplicationController
   def show
     @assignment = Assignment.find(params[:id])
     @submission = Submission.find_by(user: current_user,
-                                  assignment: @assignment)
+                                     assignment: @assignment)
     if !@submission
       @submission = Submission.new
     end

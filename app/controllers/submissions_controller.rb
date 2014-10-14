@@ -6,11 +6,11 @@ class SubmissionsController < ApplicationController
     if @submission.save
       redirect_to course_assignment_path(@submission.assignment.course,
                                          @submission.assignment),
-                    notice: "Assignment submission complete!"
+                  notice: "Assignment submission complete!"
     else
       redirect_to course_assignment_path(@submission.assignment.course,
                                          @submission.assignment),
-                    notice: "Attention: " + @submission.errors.full_messages.join("\n")
+                  notice: "Attention: " + @submission.errors.full_messages.join("\n")
     end
   end
 
@@ -23,8 +23,8 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @submission.update(submission_params)
     redirect_to course_assignment_path(@submission.assignment.course,
-                                         @submission.assignment),
-                  notice: "Submission updated!"
+                                       @submission.assignment),
+                notice: "Submission updated!"
   end
 
   private
