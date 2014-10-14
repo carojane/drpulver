@@ -51,6 +51,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem "nyan-cat-formatter"
 end
 
 # Use ActiveModel has_secure_password

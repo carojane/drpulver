@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :students
   has_many :ribbits, dependent: :destroy
   has_many :enrollments, dependent: :destroy
+  has_many :submissions, dependent: :destroy
 
   before_save :create_avatar_url
   before_validation :prep_email

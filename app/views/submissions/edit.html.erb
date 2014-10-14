@@ -1,0 +1,4 @@
+<%= simple_form_for [@assignment.course, @assignment, @submission] do |f| %>
+  <%= f.input :body, as: :text, class: "textarea" %>
+  <%= f.submit class: "button" %>
+<% end %>

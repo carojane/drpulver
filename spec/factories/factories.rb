@@ -47,4 +47,10 @@ FactoryGirl.define do
     user
     course
   end
+
+  factory :submission do
+    body Faker::Lorem.paragraph
+    user
+    assignment
+  end
 end
