@@ -81,7 +81,7 @@
           <li>
             <small><%= time_ago_in_words(ribbit.created_at) %> ago</small>
           </li>
-          <% if ribbit.user == current_user %>
+          <% if ribbit.user == current_user || current_user.admin? %>
             <li>
               <%= link_to "Delete", ribbit_path(ribbit),
                                     method: :DELETE %>

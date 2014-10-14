@@ -1,4 +1,6 @@
 class EnrollmentsController < ApplicationController
+  before_action :authorize_user, only: [:destroy]
+
   def create
     @enrollment = Enrollment.new(user_id: current_user.id,
                                  course_id: params[:course_id])

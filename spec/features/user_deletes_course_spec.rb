@@ -6,10 +6,22 @@ feature "admin deletes course", %{
   in case the class is cancelled
 } do
 
-  scenario "from course page" do
-    course = FactoryGirl.create(:course)
-    visit course_path(course)
-    expect { click_on("Delete") }.
-      to change { Course.count }.by(-1)
+  context "as an authorized user (admin" do
+    scenario "from course page" do
+      @user = FactoryGirl.create(:user, role: "admin")
+      sign_in_as @user
+      @course = FactoryGirl.create(:course)
+      visit course_path(@course)
+      expect { click_on("Delete Course") }.
+        to change { Course.count }.by(-1)
+    end
+  end
+
+  context "as an unauthorized user" do
+    scenario "on course page" do
+      @course = FactoryGirl.create(:course)
+      visit course_path(@course)
+      expect(page).to_not have_link("Delete Course")
+    end
   end
 end

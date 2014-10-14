@@ -1,3 +1,5 @@
 <h2>Courses</h2>
 <%= render "courses" %>
-<%= link_to "New Course", new_course_path %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to "New Course", new_course_path %>
+<% end %>

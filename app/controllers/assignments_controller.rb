@@ -1,4 +1,11 @@
 class AssignmentsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show]
+  before_action :authorize_user, only: [:new,
+                                        :create,
+                                        :edit,
+                                        :update,
+                                        :destroy]
+
   def index
     @assignments = Assignment.all
   end

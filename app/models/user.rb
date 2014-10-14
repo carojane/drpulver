@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
                     format: { with: /\A[\w.+-]+@([\w]+.)+\w+\z/ }
   after_save :build_student
 
+  def admin?
+    role == "admin"
+  end
+
   private
 
   def prep_email

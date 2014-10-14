@@ -18,19 +18,25 @@
       <nav class="top-nav" data-topbar role="navigation">
       <section>
         <ul class="inline-list right">
-          <% if current_user %>
+          <% if user_signed_in? %>
           <li>
             <%= link_to 'Courses', courses_path %>
           </li>
-          <li>
-            <%= link_to "Assignments", assignments_path %>
-          </li>
+            <% if current_user.admin? %>
+              <li>
+                <%= link_to "Assignments", assignments_path %>
+              </li>
+              <li>
+                <%= link_to "Students", students_path %>
+              </li>
+            <% end %>
           <li>
             <%= link_to 'Ribbits', ribbits_path %>
           </li>
           <li>
             <%= link_to 'My Profile', student_path(current_user) %>
           </li>
+
           <% end %>
           <li>
             <%= render 'devise/menu/login_items' %></li>
