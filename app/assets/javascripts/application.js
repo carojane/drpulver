@@ -17,5 +17,6 @@
 //= require jquery-te-1.4.0
 //= require jqueryte
 //= require_tree .
+//= depend_on_asset "jquery-te.png"
 
 $(function(){ $(document).foundation(); });
