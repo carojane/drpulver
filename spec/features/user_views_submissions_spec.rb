@@ -11,7 +11,6 @@ feature "User views Submission", %{
     sign_in_as admin
     visit course_assignment_submissions_path(submission.assignment.course,
                                              submission.assignment)
-    save_and_open_page
     expect(page).to have_content(submission.body)
   end
 end
