@@ -1,0 +1,20 @@
+<h1><%= @assignment.title %></h1>
+<h2>Submissions</h2>
+
+
+<dl class="accordion" data-accordion>
+  <% n = 1 %>
+<% @submissions.each do |submission| %>
+  <dd class="accordion-navigation">
+    <a href="#panel<%= n %>">
+      @<%= submission.user.username %>
+    </a>
+    <div id="panel<%= n %>" class="content active">
+      <div class="tabs-content">
+        <%= submission.body.html_safe %>
+      </div>
+    </div>
+  </dd>
+  <% n += 1 %>
+<% end %>
+</dl>

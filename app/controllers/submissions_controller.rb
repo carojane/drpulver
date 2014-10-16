@@ -1,5 +1,11 @@
 class SubmissionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_user, only: :index
+
+  def index
+    @assignment  = Assignment.find(params[:assignment_id])
+    @submissions = Submission.where(assignment: @assignment)
+  end
 
   def create
     @submission = Submission.new(submission_params)
