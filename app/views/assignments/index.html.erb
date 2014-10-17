@@ -5,7 +5,9 @@
     <th>course name</th>
     <th>course number</th>
     <th>due date</th>
-    <th>submissions</th>
+    <% if current_user.admin? %>
+      <th>submissions</th>
+    <% end %>
   </tr>
     <% @assignments.each do |assignment| %>
     <tr>
@@ -14,8 +16,10 @@
       <td><%= link_to assignment.course.name, course_path(assignment.course) %></td>
       <td><%= assignment.course.number %></td>
       <td><%= assignment.due_date.strftime("%b %-d, %Y") %></td>
+    <% if current_user.admin? %>
       <td><%= link_to assignment.submissions.count,
             course_assignment_submissions_path(assignment.course, assignment) %>
+    <% end %>
     </tr>
     <% end %>
 </table>
